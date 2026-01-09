@@ -5,15 +5,24 @@ import KanbanBoard from "./components/KanbanBoard";
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
+  // Load from localStorage
   useEffect(() => {
-    const savedTasks = JSON.parse(localStorage.getItem("kanbanTasks"));
-    if (savedTasks) setTasks(savedTasks);
+    const savedTasks = localStorage.getItem("kanbanTasks");
+    if (savedTasks) {
+      setTasks(JSON.parse(savedTasks));
+    }
+    setHasLoaded(true);
   }, []);
 
+  // Save to localStorage (after load)
   useEffect(() => {
+    if (!hasLoaded) return;
+
+    console.log("Saving tasks:", tasks);
     localStorage.setItem("kanbanTasks", JSON.stringify(tasks));
-  }, [tasks]);
+  }, [tasks, hasLoaded]);
 
   const handleAddTask = (title, description) => {
     if (!title.trim()) {
@@ -37,7 +46,9 @@ function App() {
 
   const handleUpdateTask = (updatedTask) => {
     setTasks((prev) =>
-      prev.map((task) => (task.id === updatedTask.id ? updatedTask : task))
+      prev.map((task) =>
+        task.id === updatedTask.id ? updatedTask : task
+      )
     );
   };
 
