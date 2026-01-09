@@ -22,12 +22,13 @@ function Column({ title, droppableId, tasks, onDelete, onUpdate }) {
 
             {tasks.map((task, index) => (
                 <TaskCard
-                    key={task.id}
-                    task={task}
-                    index={index}
-                    onDelete={onDelete}
-                    onUpdate={onUpdate}
+                  key={task.id}
+                  task={task}
+                  index={index}
+                  onDelete={onDelete}
+                  onUpdate={onUpdate}
                 />
+
             ))}
 
             {provided.placeholder}
