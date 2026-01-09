@@ -1,26 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 
-function EditTask({ task, setTask, onUpdate }) {
+function EditTask({ task, onSave, onCancel }) {
+  const [title, setTitle] = useState(task.title);
+  const [description, setDescription] = useState(task.description);
+
   return (
     <div className="edit-wrapper">
       <input
-        value={task.title}
-        onChange={(e) => setTask({ ...task, title: e.target.value })}
-        placeholder="Updated Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        placeholder="Updated title"
       />
 
       <textarea
         rows={3}
-        value={task.description}
-        onChange={(e) =>
-          setTask({ ...task, description: e.target.value })
-        }
-        placeholder="Updated Description"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Updated description"
       />
 
-      <button className="primaryBtn" onClick={onUpdate}>
-        Update
-      </button>
+      <div style={{ display: "flex", gap: "10px", justifyContent: "center" }}>
+        <button
+          className="primaryBtn"
+          onClick={() =>
+            onSave({ ...task, title, description })
+          }
+        >
+          Save
+        </button>
+
+        <button className="secondaryBtn" onClick={onCancel}>
+          Cancel
+        </button>
+      </div>
     </div>
   );
 }
