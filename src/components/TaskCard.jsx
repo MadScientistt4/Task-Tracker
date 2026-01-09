@@ -34,7 +34,6 @@ function TaskCard({ task, index, onDelete, onUpdate, onStatusChange }) {
               </div>
 
               <div>
-                {/* Show tick only for pending tasks */}
                 {task.status === "pending" && (
                   <BsCheckLg
                     className="icon check"

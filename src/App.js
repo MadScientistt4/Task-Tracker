@@ -7,7 +7,6 @@ function App() {
   const [tasks, setTasks] = useState([]);
   const [hasLoaded, setHasLoaded] = useState(false);
 
-  // Load from localStorage
   useEffect(() => {
     const savedTasks = localStorage.getItem("kanbanTasks");
     if (savedTasks) {
@@ -16,7 +15,6 @@ function App() {
     setHasLoaded(true);
   }, []);
 
-  // Save to localStorage (after load)
   useEffect(() => {
     if (!hasLoaded) return;
 
