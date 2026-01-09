@@ -26,21 +26,24 @@ function KanbanBoard({ tasks, onDelete, onUpdate, onStatusChange }) {
   return (
     <DragDropContext onDragEnd={handleDragEnd}>
       <div className="kanban-board">
-        <Column
-            title={`Pending (${pendingTasks.length})`}
-            droppableId="pending"
-            tasks={pendingTasks}
-            onDelete={onDelete}
-            onUpdate={onUpdate}
-        />
+      <Column
+        title={`Pending (${pendingTasks.length})`}
+        droppableId="pending"
+        tasks={pendingTasks}
+        onDelete={onDelete}
+        onUpdate={onUpdate}
+        onStatusChange={onStatusChange}
+      />
 
-        <Column
-            title={`Completed (${completedTasks.length})`}
-            droppableId="completed"
-            tasks={completedTasks}
-            onDelete={onDelete}
-            onUpdate={onUpdate}
-        />
+      <Column
+        title={`Completed (${completedTasks.length})`}
+        droppableId="completed"
+        tasks={completedTasks}
+        onDelete={onDelete}
+        onUpdate={onUpdate}
+        onStatusChange={onStatusChange}
+      />
+
 
       </div>
     </DragDropContext>

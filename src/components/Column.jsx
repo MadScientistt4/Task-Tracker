@@ -2,7 +2,7 @@ import React from "react";
 import { Droppable } from "@hello-pangea/dnd";
 import TaskCard from "./TaskCard";
 
-function Column({ title, droppableId, tasks, onDelete, onUpdate }) {
+function Column({ title, droppableId, tasks, onDelete, onUpdate, onStatusChange}) {
   return (
     <div className="kanban-column">
       <h2>{title}</h2>
@@ -22,12 +22,14 @@ function Column({ title, droppableId, tasks, onDelete, onUpdate }) {
 
             {tasks.map((task, index) => (
                 <TaskCard
-                  key={task.id}
-                  task={task}
-                  index={index}
-                  onDelete={onDelete}
-                  onUpdate={onUpdate}
-                />
+  key={task.id}
+  task={task}
+  index={index}
+  onDelete={onDelete}
+  onUpdate={onUpdate}
+  onStatusChange={onStatusChange}
+/>
+
 
             ))}
 
