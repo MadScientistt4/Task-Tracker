@@ -67,7 +67,7 @@ npm install @hello-pangea/dnd
 npm start
 ```
 
-## ⚙️ Local Development
+## Local Development
 
 The app will run locally at:
 
@@ -75,7 +75,7 @@ http://localhost:3000
 
 ---
 
-## 🧠 What This Project Demonstrates
+## What This Project Demonstrates
 
 This project showcases:
 
