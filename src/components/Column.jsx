@@ -16,7 +16,7 @@ function Column({ title, droppableId, tasks, onDelete, onUpdate, onStatusChange}
           >
             {tasks.length === 0 && (
                 <div className="empty-state">
-                    No tasks here 👋
+                    No tasks 👋 (Drag&Drop)
                 </div>
             )}
 
